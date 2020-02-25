@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Interceptors for the client and server to collect statistics about consumer calls through Prometheus",
   "main": "./src/index.js",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "jest --verbose"
   },
@@ -19,5 +24,17 @@
   "bugs": {
     "url": "https://github.com/litichevskiydv/grpc-clients-tracking/issues"
   },
-  "homepage": "https://github.com/litichevskiydv/grpc-clients-tracking#readme"
+  "homepage": "https://github.com/litichevskiydv/grpc-clients-tracking#readme",
+  "dependencies": {
+    "parent-module": "^2.0.0",
+    "read-pkg-up": "^7.0.1"
+  },
+  "peerDependencies": {
+    "grpc": "^1.24.2",
+    "prom-client": "^11.5.3"
+  },
+  "devDependencies": {
+    "grpc": "^1.24.2",
+    "prom-client": "^11.5.3"
+  }
 }
