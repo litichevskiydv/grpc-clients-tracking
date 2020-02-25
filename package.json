@@ -1,0 +1,23 @@
+{
+  "name": "grpc-clients-tracking",
+  "version": "1.0.0",
+  "description": "Interceptors for the client and server to collect statistics about consumer calls through Prometheus",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litichevskiydv/grpc-clients-tracking.git"
+  },
+  "keywords": [
+    "gRPC",
+    "Tracking"
+  ],
+  "author": "Dmitriy Litichevskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/litichevskiydv/grpc-clients-tracking/issues"
+  },
+  "homepage": "https://github.com/litichevskiydv/grpc-clients-tracking#readme"
+}
