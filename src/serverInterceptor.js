@@ -51,7 +51,7 @@ module.exports = function(call, methodDefinition, next) {
   const methodType = getMethodType(methodDefinition);
   grpcServerCallsTotal
     .labels(consumerName || "unknown", consumerVersion || "unknown", clientVersion || "unknown", methodName, serviceName, methodType)
-    .inc();
+    .inc(); // prettier-ignore
 
   return next(call);
 };
