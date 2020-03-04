@@ -21,3 +21,13 @@ jobs:
         - npm run build:server:protos
         - npm run build:client
         - npm run calculate-coverage | coveralls
+    - stage: deploy
+      if: branch = master && commit_message !~ /no-deploy/
+      node_js: lts/*
+      install: npm ci
+      script: skip
+      deploy:
+        provider: npm
+        email: litichevskiydv@gmail.com
+        api_key:
+          secure: ggEuZeIeT8qxiU834KncudMMJGN7ctewZq5blGwHS5qrmUYfzIKDF1m0Zrp9Wz1RzoYwfOHRNXqFboxsxnvVJY+3oeasCq3bUcqhGfkr5dbVG+0ySPy+mDVBNnHtuA7iSaS8Y+FXt71Eq/D3AbYewF3ZPtzafHvUcGT97Iny+zMrCcbzy2dDPpY88wLvYjj9lD6sD84CzuCeiFDp8EE2k0CUKZbrx8+QN0fD+T0CMo4KMKT/16YzQh5WUZZDCGa/JHmcAqH1p78kqxYHskaUth+Ge63JZ+PwijpOhMzTEQhLsPLX75zAW6Sm/HSRPry4Hg46iFeM2E51vfsNhwDYBDCGq+gKO2LofZqTCf01j8AuCFfvOyuKnbhLUcFH/dUQRsb7p6Qhaj+rN0xE3CgOO3MT+PgJiW0Hj0KvRTzr6CxUywr5H/V6GknVwFcZW/XaYGT64DI0vkaVpjDCLKydkm1N6j3kk9P04UyV9LPzRBNdc62nt35Y6NP6yoff6I4AH2Hh+cNufhPtRHnQdl4Lz1BFMzKYieXQ6Ee8ppaGR97cu/d45Q1fOW8E6Qv9na5emq0c71fMg+0h4ZhlO7iYYYfbo18fU6mJUSRXr/Wkk0/3O0bT+TB7EEX2QFe+lYgaCGaaprSDAtoWQPisTNRDwnHH7RLOGkfR1ZWLytSaFB0=
