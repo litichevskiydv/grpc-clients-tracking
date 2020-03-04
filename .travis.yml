@@ -20,4 +20,4 @@ jobs:
       script:
         - npm run build:server:protos
         - npm run build:client
-        - jest --coverage --coverageReporters=text-lcov | coveralls
+        - npx run calculate-coverage | coveralls

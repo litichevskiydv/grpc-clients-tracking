@@ -15,7 +15,8 @@
     "build:server": "npm run build:server:protos && npm run build:server:types",
     "build:client": "grpc-gen-client --out ./tests/generated/client --include ./tests/protos/ greeter.proto",
     "build": "npm run build:server && npm run build:client",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "calculate-coverage": "jest --coverage --coverageReporters=text-lcov"
   },
   "repository": {
     "type": "git",
