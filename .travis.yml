@@ -20,4 +20,4 @@ jobs:
       script:
         - npm run build:server:protos
         - npm run build:client
-        - npx run calculate-coverage | coveralls
+        - npm run calculate-coverage | coveralls
