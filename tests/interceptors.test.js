@@ -100,7 +100,7 @@ afterEach(() => {
   metricsRegistry.resetMetrics();
 });
 
-test("Must register successful call on the server side", async () => {
+test("Must register successful call", async () => {
   // Given
   const labels = {
     consumer_name: "grpc-clients-tracking",
@@ -113,6 +113,24 @@ test("Must register successful call on the server side", async () => {
 
   // When
   await sayHello();
+
+  // Then
+  verifyMetricsValues(labels);
+});
+
+test("Must register errored call", async () => {
+  // Given
+  const labels = {
+    consumer_name: "grpc-clients-tracking",
+    consumer_version: process.env.npm_package_version,
+    client_version: "1.1.1",
+    grpc_method: "ThrowError",
+    grpc_service: "v1.Greeter",
+    grpc_type: "unary"
+  };
+
+  // When
+  await expect(throwError()).rejects.toEqual(new Error("13 INTERNAL: Something went wrong"));
 
   // Then
   verifyMetricsValues(labels);
