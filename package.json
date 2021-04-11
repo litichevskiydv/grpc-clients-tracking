@@ -1,6 +1,6 @@
 {
   "name": "grpc-clients-tracking",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Interceptors for the client and server to collect statistics about consumer calls through Prometheus",
   "engines": {
     "node": ">=10.10.0"
