@@ -1,7 +1,7 @@
 const path = require("path");
 const readPkgUp = require("read-pkg-up");
 const parentModule = require("parent-module");
-const { InterceptingCall } = require("grpc");
+const { InterceptingCall } = require("@grpc/grpc-js");
 
 /**
  * @param {ConsumerDescription} options
@@ -25,25 +25,25 @@ function getConsumerDescription(options) {
 /**
  * @param {ConsumerDescription} options
  */
-module.exports = function(options) {
+module.exports = function (options) {
   const consumerDescription = getConsumerDescription(options);
 
   /**
-   * @param {{method_definition: import("grpc").MethodDefinition}} options
+   * @param {{method_definition: import("@grpc/grpc-js").MethodDefinition}} options
    * @param {Function} nextCall
    * @returns {InterceptingCall}
    */
-  return function(options, nextCall) {
+  return function (options, nextCall) {
     return new InterceptingCall(nextCall(options), {
       /**
-       * @param {import("grpc").Metadata} metadata
-       * @param {import("grpc").Listener} listener
+       * @param {import("@grpc/grpc-js").Metadata} metadata
+       * @param {import("@grpc/grpc-js").Listener} listener
        * @param {Function} next
        */
-      start: function(metadata, listener, next) {
+      start: function (metadata, listener, next) {
         metadata.set("consumerDescription", JSON.stringify(consumerDescription));
         next(metadata, listener);
-      }
+      },
     });
   };
 };
