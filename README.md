@@ -9,6 +9,9 @@
 
 Interceptors for the client and server to collect statistics about consumer calls through Prometheus
 
+## This was migrated to https://github.com/litichevskiydv/grpc-bay
+This repository has been moved to the unified "monorepo". You can find the source under [/packages/grpc-clients-tracking](https://github.com/litichevskiydv/grpc-bay/tree/master/packages/grpc-clients-tracking).
+
 # Install
 
 `npm i grpc-clients-tracking`
